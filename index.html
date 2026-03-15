@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tivadar Nagy | Portfolio</title>
+
+<!-- particles background -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background-color:#0f0f0f;
+color:white;
+
+background-image:
+linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+background-size:40px 40px;
+background-color:#0f0f0f;
+background-image:
+linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+background-size:40px 40px;
+}
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:transparent;
+position:sticky;
+top:0;
+backdrop-filter: blur(6px);
+}
+
+header h3{
+color:#00bfff;
+}
+
+nav a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00bfff;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.hero h2{
+color:#00bfff;
+margin:15px 0;
+}
+
+.hero p{
+color:#aaa;
+max-width:600px;
+}
+
+.button{
+padding:12px 25px;
+margin:10px;
+background:#00bfff;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+display:inline-block;
+}
+
+.button:hover{
+transform:translateY(-3px);
+background:#0095cc;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+opacity:0;
+transform:translateY(30px);
+transition:all 0.8s ease;
+}
+
+section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+h2{
+font-size:40px;
+margin-bottom:30px;
+color:#00bfff;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.project-card{
+background:rgba(255,255,255,0.05);
+border-radius:12px;
+overflow:hidden;
+transition:transform 0.15s ease;
+transform-style:preserve-3d;
+will-change:transform;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+background:#222;
+}
+.project-content h3{
+font-size:22px;
+margin-bottom:4px;
+color:white;
+}
+.project-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.project-content{
+padding:20px;
+}
+
+.project-content p{
+color:#bbb;
+margin:10px 0 15px;
+line-height:1.6;
+}
+.project-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin:12px 0 14px;
+}
+
+.project-tags span{
+background:rgba(0,191,255,0.12);
+color:#7ddcff;
+border:1px solid rgba(0,191,255,0.25);
+padding:6px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:bold;
+letter-spacing:0.3px;
+transition:0.3s;
+}
+
+.project-card:hover .project-tags span{
+background:rgba(0,191,255,0.18);
+border-color:rgba(0,191,255,0.4);
+}
+
+.project-buttons a{
+margin-right:10px;
+font-size:14px;
+}
+
+/* SKILLS */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.skill{
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:12px;
+text-align:center;
+width:120px;
+transition:0.3s;
+}
+
+.skill i{
+font-size:40px;
+margin-bottom:8px;
+color:#00bfff;
+}
+
+.skill p{
+font-size:14px;
+color:#ccc;
+}
+
+.skill:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.08);
+box-shadow:0 10px 20px rgba(0,191,255,0.15);
+}
+
+
+
+/* CONTACT */
+
+.contact-links a{
+display:inline-block;
+margin-right:20px;
+margin-top:10px;
+color:#00bfff;
+text-decoration:none;
+font-size:18px;
+}
+.hero-buttons{
+margin-top:25px;
+}
+
+.profile-card{
+margin-top:40px;
+display:flex;
+align-items:center;
+gap:30px;
+
+background:rgba(255,255,255,0.05);
+padding:25px 35px;
+border-radius:15px;
+
+backdrop-filter: blur(8px);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.profile-img{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+object-position:center top;
+border:3px solid #00bfff;
+}
+
+.profile-info h3{
+margin-bottom:5px;
+}
+
+.profile-info p{
+color:#aaa;
+margin-bottom:15px;
+}
+
+.stats{
+display:flex;
+gap:25px;
+}
+
+.stat h4{
+color:#00bfff;
+font-size:20px;
+}
+
+.stat p{
+font-size:14px;
+color:#aaa;
+}
+.contact-links a:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(0,191,255,0.2);
+}
+
+/* platform colors */
+
+.contact-links a:hover .fa-github{
+color:#ffffff;
+}
+
+.contact-links a:hover .fa-linkedin{
+color:#0077b5;
+}
+
+.contact-links a:hover .fa-instagram{
+color:#e1306c;
+}
+
+.contact-links a:hover .fa-whatsapp{
+color:#25d366;
+}
+
+.contact-links a:hover .fa-envelope{
+color:#ff6b6b;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+background:transparent;
+color:#777;
+margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<header>
+<h3>Tivadar.dev</h3>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+
+<section class="hero">
+
+<h1>Hello, I'm Tivadar 👋</h1>
+<h2 id="typing"></h2>
+
+<p>I build software, robots and creative tech projects.</p>
+
+<div class="hero-buttons">
+<a class="button" href="#projects">View Projects</a>
+</div>
+
+<div class="profile-card">
+
+<img src="images/profile.jpg" class="profile-img">
+
+<div class="profile-info">
+<h3>Tivadar Nagy</h3>
+<p>Automation Student</p>
+
+<div class="stats">
+
+<div class="stat">
+<h4>10+</h4>
+<p>Projects</p>
+</div>
+
+<div class="stat">
+<h4>5+</h4>
+<p>Languages</p>
+</div>
+
+<div class="stat">
+<h4>3</h4>
+<p>Robotics Builds</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+I`m an automation student at the Technical University of Cluj-Napoca. I really enjoy building thing and solve everyday problems with creative tech solutions. I have a passion for robotics, embedded systems and software development. I`m always looking for new challenges and opportunities to learn and grow as a developer and maker.
+</p>
+
+</section>
+
+
+
+<section id="projects">
+
+<h2>Main Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<img src="images/recordplayer.jpg">
+
+<div class="project-content">
+<h3>Mini Record Player</h3>
+
+<div class="project-tags">
+<span>Raspberry Pi</span>
+<span>Python</span>
+<span>Bluetooth</span>
+<span>Music</span>
+</div>
+
+<p>Raspberry Pi powered smart record player.</p>
+
+    <h3>In progress ... </h3>
+
+</div>
+</div>
+
+
+<div class="project-card">
+<img src="images/traktor.png">
+
+<div class="project-content">
+<h3>Greenhouse Robot</h3>
+
+<div class="project-tags">
+<span>Robotics</span>
+<span>Nvidia Orion</span>
+<span>Self Driving</span>
+<span>Automation</span>
+</div>
+
+<p>Autonomous robot designed for greenhouse work.</p>
+
+ <h3>In progress ... </h3>
+
+</div>
+</div>
+
+
+<div class="project-card">
+<img src="images/tetris.jpg">
+
+<div class="project-content">
+<h3>Tetris Game</h3>
+
+<div class="project-tags">
+<span>C++</span>
+<span>Gameboy</span>
+<span>Emulator</span>
+</div>
+
+<p>A simple Tetris on a handheld console.</p>
+
+<div class="project-buttons">
+<a class="button" href="#">GitHub</a>
+</div>
+
+</div>
+</div>
+
+
+<div class="project-card">
+<img src="images/plantpot.jpg">
+
+<div class="project-content">
+<h3>Self Sustainable Plant Pot</h3>
+
+<div class="project-tags">
+<span>ESP32</span>
+<span>Automation</span>
+<span>App</span>
+<span>Garden</span>
+</div>
+
+<p>A smart plant pot that can monitor and maintain the health of your plants.</p>
+
+ <h3>In progress ... </h3>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="skill">
+<i class="devicon-cplusplus-plain"></i>
+<p>C++</p>
+</div>
+
+<div class="skill">
+<i class="devicon-csharp-plain"></i>
+<p>C#</p>
+</div>
+
+<div class="skill">
+<i class="devicon-javascript-plain"></i>
+<p>JavaScript</p>
+</div>
+
+<div class="skill">
+<i class="devicon-python-plain"></i>
+<p>Python</p>
+</div>
+
+<div class="skill">
+<i class="devicon-html5-plain"></i>
+<p>HTML</p>
+</div>
+
+<div class="skill">
+<i class="devicon-css3-plain"></i>
+<p>CSS</p>
+</div>
+
+<div class="skill">
+<i class="devicon-git-plain"></i>
+<p>Git</p>
+</div>
+
+<div class="skill">
+<i class="devicon-raspberrypi-line"></i>
+<p>Raspberry Pi</p>
+</div>
+
+<div class="skill">
+<i class="devicon-arduino-plain"></i>
+<p>ESP32</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+<div class="contact-links">
+
+<a href="https://github.com/Ntiva459" target="_blank">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/nagy-tivadar-713245399/" target="_blank">
+<i class="fa-brands fa-linkedin"></i>
+LinkedIn
+</a>
+
+<a href="mailto:tivadarnagy419@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+Email
+</a>
+
+<a href="https://instagram.com/ntiva459" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+Instagram
+</a>
+
+<a href="https://web.whatsapp.com/+40 754 580 150" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 Tivadar Nagy
+</footer>
+
+
+<script>
+
+/* typing animation */
+
+const text = [
+"Automation Student",
+"Hardware & Software Builder",
+"Robotics Enthusiast",
+"Creative Developer"
+];
+
+let i = 0;
+let j = 0;
+let currentText = "";
+let isDeleting = false;
+
+function type(){
+
+currentText = text[i];
+
+if(isDeleting){
+j--;
+}else{
+j++;
+}
+
+document.getElementById("typing").textContent = currentText.substring(0,j);
+
+if(!isDeleting && j === currentText.length){
+isDeleting = true;
+setTimeout(type,1500);
+return;
+}
+
+if(isDeleting && j === 0){
+isDeleting = false;
+i++;
+if(i === text.length){
+i = 0;
+}
+}
+
+setTimeout(type,100);
+
+}
+
+type();
+
+
+/* scroll animation */
+
+const sections = document.querySelectorAll("section");
+
+function reveal(){
+sections.forEach(section => {
+
+const top = section.getBoundingClientRect().top;
+const trigger = window.innerHeight * 0.85;
+
+if(top < trigger){
+section.classList.add("visible");
+}
+
+});
+}
+
+window.addEventListener("scroll", reveal);
+reveal();
+
+
+/* particles background */
+
+particlesJS("particles-js", {
+particles: {
+number: {
+value: 60
+},
+color: {
+value: "#00bfff"
+},
+shape: {
+type: "circle"
+},
+opacity: {
+value: 0.7
+},
+size: {
+value: 3,
+random: true
+},
+line_linked: {
+enable: false
+},
+move: {
+enable: true,
+speed: 0.6,
+direction: "none",
+random: true,
+straight: false,
+out_mode: "out"
+}
+},
+interactivity: {
+detect_on: "canvas",
+events: {
+onhover: {
+enable: false
+},
+onclick: {
+enable: false
+}
+}
+},
+retina_detect: true
+});
+
+/* 3D hover tilt */
+
+const cards = document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+
+card.addEventListener("mousemove", (e) => {
+
+const rect = card.getBoundingClientRect();
+
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+
+const rotateX = -(y - centerY) / 15;
+const rotateY = (x - centerX) / 15;
+
+card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+card.addEventListener("mouseleave", () => {
+
+card.style.transform = "rotateX(0) rotateY(0)";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
